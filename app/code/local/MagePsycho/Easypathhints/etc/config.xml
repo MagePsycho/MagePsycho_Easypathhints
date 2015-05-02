@@ -11,7 +11,7 @@
 <config>
     <modules>
         <MagePsycho_Easypathhints>
-            <version>0.2.0</version>
+            <version>0.3.0</version>
         </MagePsycho_Easypathhints>
     </modules>
     <global>
@@ -52,30 +52,6 @@
             </easypathhints>
         </routers>
     </frontend>
-    <adminhtml>
-        <acl>
-            <resources>
-                <admin>
-                    <children>
-                        <system>
-                            <children>
-                                <config>
-                                    <children>
-                                        <magepychoinfo>
-											<title>MagePsycho - All</title>
-										</magepychoinfo>
-                                        <easypathhints>
-                                            <title>Easy Path Hints Area</title>
-                                        </easypathhints>
-                                    </children>
-                                </config>
-                            </children>
-                        </system>
-                    </children>
-                </admin>
-            </resources>
-        </acl>
-    </adminhtml>
     <default>
         <easypathhints>
             <option>

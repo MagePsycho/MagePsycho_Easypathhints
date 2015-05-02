@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @category   MagePsycho
  * @package    MagePsycho_Easypathhints
@@ -8,23 +9,37 @@
  */
 class MagePsycho_Easypathhints_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    public function getConfig($field, $default = null){
-        $value = Mage::getStoreConfig('easypathhints/option/'.$field);
-        if(!isset($value) or trim($value) == ''){
-            return $default;
-        }else{
-            return $value;
-        }
+	public function getConfig($field, $section = 'option')
+	{
+		return Mage::getStoreConfig('easypathhints/' .$section .  '/' . $field);
 	}
 
-    public function log($data){
-        if(is_array($data) || is_object($data)){
-            $data = print_r($data, true);
-        }
-        Mage::log($data, null, 'easypathhints.log');
+	public function log($data, $includeSep = false)
+	{
+		if (!$this->getConfig('enable_log')) {
+			return;
+		}
+		if ($includeSep) {
+			$separator = '=================================================================';
+			Mage::log($separator, null, 'easypathhints.log', true);
+		}
+		Mage::log($data, null, 'easypathhints.log', true);
 	}
 
-	public function isActive(){
+	public function checkVersion($version, $operator = '>=')
+	{
+		return version_compare(Mage::getVersion(), $version, $operator);
+	}
+
+	public function getExtensionVersion()
+	{
+		$moduleCode = 'MagePsycho_Easypathhints';
+		return (string) $currentVer = Mage::getConfig()->getModuleConfig($moduleCode)->version;
+	}
+
+	public function isActive()
+	{
 		return $this->getConfig('active');
 	}
+
 }

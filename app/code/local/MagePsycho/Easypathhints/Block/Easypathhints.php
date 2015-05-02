@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @category   MagePsycho
  * @package    MagePsycho_Easypathhints
