@@ -1,0 +1,13 @@
+{
+    "name": "victordit/MagePsycho_Easypathhints",
+    "description": "Easy Template Path Hints extension is used to turn on the template path hints for frontend & backend with ease in a secured way.",
+    "type": "magento-module",
+    "authors": [
+        {
+            "name": "MagePsycho"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
